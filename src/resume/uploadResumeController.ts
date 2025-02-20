@@ -43,6 +43,8 @@ export const uploadResumeController = async(req:Request, res:Response, next:Next
         }
     })
 
+    await fs.promises.unlink(filePath); 
+    
     
 
    res.json({
