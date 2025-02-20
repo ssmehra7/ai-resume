@@ -5,6 +5,7 @@ import userRouter from "./user/userRouter";
 import { authMiddleware } from "./middleware/authMiddleware";
 import resumeRouter from "./resume/resumeRouter";
 import { config } from "./config";
+import cors from "cors"; 
 
 
 
@@ -15,7 +16,8 @@ const app = express();
 
 //middlewares
 
-app.use(express.json()); 
+app.use(express.json());
+app.use(cors());  
 
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/resume", resumeRouter);  
