@@ -1,11 +1,10 @@
 import express from "express"; 
 import { globalErrorHandler } from "./middleware/globalErrorHandler";
-import createHttpError from "http-errors";
-import { prisma } from "./config/db";
-import { config } from "./config";
+
 import userRouter from "./user/userRouter";
 import { authMiddleware } from "./middleware/authMiddleware";
 import resumeRouter from "./resume/resumeRouter";
+import { config } from "./config";
 
 
 
@@ -24,6 +23,7 @@ app.use("/api/v1/resume", resumeRouter);
 app.get("/",(req,res)=>{
     res.status(200).json({
         message:"welcome to the backend server", 
+        config:config, 
     })
     return ; 
 })
