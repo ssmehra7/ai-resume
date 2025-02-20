@@ -41,8 +41,7 @@ export const signUpRouter = async (req: Request, res: Response, next: NextFuncti
             }
         });
 
-        console.log("newUser is ", newUser); 
-        console.log("jwtsecret", config.jwtSecret);
+        
 
         //creating user 
 
