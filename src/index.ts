@@ -22,10 +22,23 @@ app.use(express.json());
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/resume", resumeRouter);  
 
+
+const loaded = {
+    a:config.port?"loaded":"not loaded", 
+    b: config.node_env?"loaded":"not loaded",
+    c:config.dbUrl?"loaded":"not loaded",
+    d:config.jwtSecret?"loaded":"not loaded",
+    e:config.geminiKey?"loaded":"not loaded",
+    f:config.cloud_name?"loaded":"not loaded",
+    g:config.api_secret?"loaded":"not loaded",
+    h:config.api_key?"loaded":"not loaded",
+}
+
 app.get("/",(req,res)=>{
     res.status(200).json({
         message:"welcome to the backend server", 
-        config:config, 
+        config:config,
+        loaded,  
     })
     return ; 
 })
