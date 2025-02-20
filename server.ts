@@ -2,6 +2,10 @@
 import app from "./src"
 import { config } from "./src/config";
 
+import dotenv from "dotenv";
+dotenv.config({path:".env"});
+
+
 
 
 
