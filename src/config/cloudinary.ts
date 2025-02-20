@@ -1,9 +1,10 @@
 import { v2 as cloudinary } from 'cloudinary';
+import { config } from '.';
 
 cloudinary.config({ 
-    cloud_name: 'dliwrmlyb', 
-    api_key: '147124751375812', 
-    api_secret: 'JjDYWW-zt2ny827VbPW-mCGjs2o' // Click 'View API Keys' above to copy your API secret
+    cloud_name: config.cloud_name, 
+    api_key: config.api_key,
+    api_secret: config.api_secret,// Click 'View API Keys' above to copy your API secret
 });
 
 
