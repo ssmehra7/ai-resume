@@ -2,11 +2,9 @@ import express from "express";
 import path from "node:path"; 
 import { uploadResumeController } from "./uploadResumeController";
 import multer from "multer";
-// import { fileURLToPath } from "url"; 
-// import { dirname } from "path";
+import { authMiddleware } from "../middleware/authMiddleware";
+import { resumeLlmGenerateRouter } from "./resumeLlmGenerateRouter";
 
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = dirname(__filename);
 
 const resumeRouter = express.Router(); 
 const uploads = multer({
@@ -15,14 +13,13 @@ const uploads = multer({
 }); 
 
 
-// resumeRouter.post("/",uploads.fields([
-//     {resumePdf:'resumePdf', maxCount:1}
-// ]),uploadResumeController);
 
-resumeRouter.post("/", uploads.fields([
+
+resumeRouter.post("/",authMiddleware,  uploads.fields([
     { name: 'resumePdf', maxCount: 1 }
 ]), uploadResumeController);
 
+resumeRouter.get("/:resumeId",authMiddleware,  resumeLlmGenerateRouter); 
 
 
 export default resumeRouter; 

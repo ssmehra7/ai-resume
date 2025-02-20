@@ -26,7 +26,17 @@ app.use("/api/v1/resume", resumeRouter);
 
 
 
+app.get("/protected", authMiddleware, (req,res)=>{
+    //@ts-ignore
+    const user = req.user; 
 
+    res.json({
+        message:"route is protected", 
+        user, 
+    }); 
+
+    return ; 
+})
 
 
 //GLobal error handling 
