@@ -21,6 +21,13 @@ app.use(express.json());
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/resume", resumeRouter);  
 
+app.get("/",(req,res)=>{
+    res.status(200).json({
+        message:"welcome to the backend server", 
+    })
+    return ; 
+})
+
 
 
 
