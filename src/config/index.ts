@@ -8,6 +8,7 @@ export const config = {
     node_env:process.env.NODE_ENV, 
     dbUrl :process.env.DATABASE_URL, 
     jwtSecret:process.env.JWT_SECRET, 
+    geminiKey:process.env.GEMINI_API_KEY, 
 }
 
 
