@@ -1,4 +1,3 @@
-
 import { NextFunction, Request, Response } from "express";
 import { HttpError } from "http-errors";
 import { config } from "../config";

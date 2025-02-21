@@ -23,5 +23,3 @@ resumeRouter.get("/:resumeId",authMiddleware,  resumeLlmGenerateRouter);
 
 
 export default resumeRouter; 
-
-

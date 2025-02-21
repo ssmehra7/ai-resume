@@ -1,12 +1,17 @@
 import express from "express"; 
-import { globalErrorHandler } from "./middleware/globalErrorHandler";
+import { globalErrorHandler} from "./middleware/globalErrorHandler"
+import { authMiddleware } from "./middleware/authMiddleware";
 
 import userRouter from "./user/userRouter";
-import { authMiddleware } from "./middleware/authMiddleware";
-import resumeRouter from "./resume/resumeRouter";
+import resumeRouter from "./resume/resumeRouter"; 
 import { config } from "./config";
 import cors from "cors"; 
 
+import dotenv from "dotenv";
+dotenv.config({path:".env"});
+
+
+const PORT = config.port||3000; 
 
 
 
@@ -63,6 +68,11 @@ app.get("/protected", authMiddleware, (req,res)=>{
 
 //GLobal error handling 
 app.use(globalErrorHandler)
+
+
+app.listen(PORT, ()=>{
+    console.log("Server is running on port ", PORT); 
+})
 
 
 
