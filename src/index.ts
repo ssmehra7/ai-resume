@@ -42,7 +42,7 @@ const loaded = {
 app.get("/",(req,res)=>{
     res.status(200).json({
         message:"welcome to the backend server", 
-        config:config,
+        // config:config,
         loaded,  
     })
     return ; 
