@@ -8,6 +8,7 @@ import { config } from "./config";
 import cors from "cors"; 
 
 import dotenv from "dotenv";
+import searchRouter from "./search/searchRouter";
 dotenv.config({path:".env"});
 
 
@@ -26,32 +27,16 @@ app.use(express.json());
 
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/resume", resumeRouter);  
+app.use("/api/v1/search",searchRouter); 
 
 
-const loaded = {
-    a:config.port?"loaded":"not loaded", 
-    b: config.node_env?"loaded":"not loaded",
-    c:config.dbUrl?"loaded":"not loaded",
-    d:config.jwtSecret?"loaded":"not loaded",
-    e:config.geminiKey?"loaded":"not loaded",
-    f:config.cloud_name?"loaded":"not loaded",
-    g:config.api_secret?"loaded":"not loaded",
-    h:config.api_key?"loaded":"not loaded",
-}
 
-app.get("/",(req,res)=>{
+
+app.get("/", (req,res )=>{
     res.status(200).json({
-        message:"welcome to the backend server", 
-        // config:config,
-        loaded,  
+        message:"Welcome to the api routes", 
     })
-    return ; 
 })
-
-
-
-
-
 
 app.get("/protected", authMiddleware, (req,res)=>{
     //@ts-ignore

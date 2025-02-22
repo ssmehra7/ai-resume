@@ -61,11 +61,11 @@ export const signUpRouter = async (req: Request, res: Response, next: NextFuncti
                 return next(createHttpError(500, "Error in the creating the user"));
             }
         } catch (error) {
-            console.log(error);
+            // console.log(error);
             return next(createHttpError(500, "Error in hashing the password"));
         }
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         return next(createHttpError(501, "Error in checking the existing User"));
     }
 
